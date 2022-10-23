@@ -2,7 +2,7 @@ from pyexpat import model
 from tkinter import CASCADE
 from django.db import models
 
-from HungrezyApp.views import contact
+# from HungrezyApp.views import contact
 from django.contrib.auth.models import User
 
 # Create your models here.
