@@ -20,8 +20,8 @@ class customer(models.Model):
     contact_number = models.CharField(max_length=11)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-class restaurant(models.Model):
-    res_id = models.IntegerField(primary_key=True)
+class restaurant_or_homemade_food(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30)
     address = models.TextField()
     contact_number = models.CharField(max_length=11)
@@ -31,8 +31,8 @@ class restaurant(models.Model):
     review = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-class home_made_food(models.Model):
-    hmf_suppiler_id = models.IntegerField(primary_key=True)
+# class home_made_food(models.Model):
+#     hmf_suppiler_id = models.IntegerField(primary_key=True)
     
 class order(models.Model):
     o_id = models.IntegerField(primary_key=True)
