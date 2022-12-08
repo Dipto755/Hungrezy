@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib import messages
+# from django.core import validators
 # from HungrezyApp.forms import customersignupform
 # from HungrezyApp.models import customer
 # from HungrezyApp.models import rider
@@ -43,7 +45,52 @@ def contact(request):
 
 
 def login(request):
-    return HttpResponse("<style>h1{text-align: center;}</style><h1>Welcome... This is our login page</h1>")
+    # return HttpResponse("<style>h1{text-align: center;}</style><h1>Welcome... This is our login page</h1>")
+    
+    if(request.method == 'POST'):
+        email = request.POST['email']
+        password = request.POST['password']
+        users = request.POST['users']
+        
+        user_objs = User.objects.all()
+        # get_user = user_objs.get(email=email, password = password)
+        get_user = user_objs.filter(email=email, password = password)
+        # if user_objs.get(email=email, password = password) is Exception:
+        #     get_user = user_objs.get(email=email, password = password)
+        #     print(get_user)
+        # if get_user:
+        #     print("id", get_user[0].id)
+        # else :
+        #     print("GGEZ")
+        # print(get_user.DoesNotExist)
+        
+        
+        # print(get_user[0].id)
+        if get_user:
+            if(users == "customer"):
+                cus = customer_account.objects.all()
+                get_cus = cus.filter(user=get_user[0].id)
+                if get_cus:
+                    print("Successfully logged in")
+                else:
+                    messages.error(request, "Please select correct type")
+                    
+        else :
+            messages.info(request, 'incorrect email or password')
+            # ValidationError(_('Invalid value'), code='invalid')
+
+        # if(users == "customer"):
+        #     # print(get_user)
+        #     cus = customer_account.objects.all()
+        #     get_cus = cus.get(user=get_user.id)
+            
+        #     print(get_cus.address)
+        
+        
+        
+    
+    
+    return render(request, 'login.html')
 
 
 def admin(request):
@@ -188,6 +235,7 @@ def customeraccountsignup(request):
         
         userObjs = User.objects.all()
         get_user = userObjs.get(username=name)
+        # print(get_user)
         
         # csu = customer(name=name, email=email, address = address, contact_number = contact_no, gender=gender, password=password, user=get_user)
         # csu.save()
