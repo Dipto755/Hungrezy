@@ -74,9 +74,28 @@ def login(request):
                     print("Successfully logged in")
                 else:
                     messages.error(request, "Please select correct type")
+            
+            elif(users == "rider"):
+                rid = rider_account.objects.all()
+                get_rid = rid.filter(user=get_user[0].id)
+                if get_rid:
+                    print("Successfully logged in")
+                else:
+                    messages.error(request, "Please select correct type")
                     
+            elif(users == "business"):
+                bus = business_account.objects.all()
+                get_bus = bus.filter(user=get_user[0].id)
+                if get_bus:
+                    print("Successfully logged in")
+                else:
+                    messages.error(request, "Please select correct type")
+                    
+            else:
+                messages.error(request, "Please select your account type and try again")
         else :
-            messages.info(request, 'incorrect email or password')
+            messages.error(request, 'incorrect email or password')
+            
             # ValidationError(_('Invalid value'), code='invalid')
 
         # if(users == "customer"):

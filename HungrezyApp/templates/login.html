@@ -8,12 +8,18 @@
 </head>
 <body>
     <div class=" div1">
-        <img src="log.jpg" alt="">
+        <img src="{% static '/log.jpg'%}" alt="my image">
     </div>
     <div class="div2">
 
+        
+
         <div >
             <center>
+                <div id="content">
+                    {% include 'messages.html' %}
+                    {% block content %} {% endblock content %}
+                </div>
                 <h1 class="logtxt">Welcome Back !!</h1>
                 <form action="" method = "POST">
                     {% csrf_token %}
@@ -29,11 +35,11 @@
                 
                     <div class="form-group" >
                         <select id="users" name="users">
-                            <option value="usertype">Select user type</option>
-                            <option value="customer">Custormer</option>
+                            <option value="usertype">Select account type</option>
+                            <option value="customer">Customer</option>
                             <option value="rider">Rider</option>
-                            <option value="restaurant">Restaurant</option>
-                            <option value="homemadedelivery">Home Made delivery</option>
+                            <option value="business">Business</option>
+                            {% comment %} <option value="homemadedelivery">Home Made delivery</option> {% endcomment %}
                         </select>
                     </div>
                     <div class="form-group" >
