@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from HungrezyApp.forms import customersignupform
-from HungrezyApp.models import customer
-from HungrezyApp.models import rider
+# from HungrezyApp.forms import customersignupform
+# from HungrezyApp.models import customer
+# from HungrezyApp.models import rider
+from HungrezyApp.models import customer_account
+from HungrezyApp.models import rider_account
 from HungrezyApp.models import business_account
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 
@@ -179,9 +183,17 @@ def customeraccountsignup(request):
         gender = request.POST['gender']
         password = request.POST['password']
 
-        csu = customer(name=name, email=email, address = address, contact_number = contact_no, gender=gender, password=password)
-        csu.save()
+        userT = User(username=name, email=email, password=password)
+        userT.save()
         
+        userObjs = User.objects.all()
+        get_user = userObjs.get(username=name)
+        
+        # csu = customer(name=name, email=email, address = address, contact_number = contact_no, gender=gender, password=password, user=get_user)
+        # csu.save()
+        
+        casu = customer_account(name=name, email=email, address=address,contact_number=contact_no, gender=gender, password=password, user = get_user)
+        casu.save()
     
     
     
@@ -204,7 +216,13 @@ def businessaccountsignup(request):
         gender = request.POST['gender']
         password = request.POST['password']
         
-        bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, food_type=food, address=address, contact_no=contact_no, gender=gender, password=password)
+        userT = User(username=name, email=email, password=password)
+        userT.save()
+        
+        userObjs = User.objects.all()
+        get_user = userObjs.get(username=name)
+        
+        bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, food_type=food, address=address, contact_no=contact_no, gender=gender, password=password, user=get_user)
         bsu.save()
         
     
@@ -216,7 +234,7 @@ def rideraccountsignup(request):
     #     "<style>h1{text-align: center;}</style><h1>Welcome... This is our rider account signup page</h1>")
     
     if(request.method == 'POST'):
-        name = request.POST['name']
+        name =  request.POST['name']
         email = request.POST['email']
         address = request.POST['address']
         delivary_method = request.POST['delivary_method']
@@ -224,9 +242,17 @@ def rideraccountsignup(request):
         gender = request.POST['gender']
         password = request.POST['password']
         
+        userT = User(username=name, email=email, password=password)
+        userT.save()
         
-        rsu = rider(name=name, email=email, address=address, delivary_method=delivary_method, contact_no=contact_no, gender=gender, password=password)
-        rsu.save()
+        userObjs = User.objects.all()
+        get_user = userObjs.get(username=name)
+        
+        # rsu = rider(u_name=name, email=email, address=address, delivary_method=delivary_method, gender=gender, contact_number=contact_no, password=password, user=get_user)
+        # rsu.save()
+        
+        rasu = rider_account(user_name = name, email = email, address = address, delivary_method = delivary_method, gender = gender, contact_number = contact_no, password = password, user = get_user)
+        rasu.save()
         
         
     return render(request, 'rider_acc_signup.html')
