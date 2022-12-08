@@ -2,6 +2,7 @@ from pyexpat import model
 from tkinter import CASCADE
 from django.db import models
 
+
 # from HungrezyApp.views import contact
 from django.contrib.auth.models import User
 
@@ -16,9 +17,14 @@ class admin(models.Model):
 
 class customer(models.Model):
     cus_id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=30)
     address = models.TextField()
     contact_number = models.CharField(max_length=11)
+    gender = models.CharField(max_length=10)
+    password = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # password = models.CharField(max_length=30)
     
 class restaurant_or_homemade_food(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -55,7 +61,24 @@ class menu(models.Model):
     
 class rider(models.Model):
     rid_id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
     address = models.TextField()
+    delivary_method = models.CharField(max_length=10)
+    gender = models.CharField(max_length=10)
     contact_number = models.CharField(max_length=11)
+    password = models.CharField(max_length=20)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     
+class business_account(models.Model):
+    bus_acc_id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+    res_name = models.CharField(max_length=30)
+    service = models.CharField(max_length=20)
+    food_type = models.CharField(max_length=20)
+    address = models.TextField()
+    contact_no = models.CharField(max_length=11)
+    gender = models.CharField(max_length=10)
+    password = models.CharField(max_length=20)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

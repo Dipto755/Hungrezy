@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from HungrezyApp.forms import customersignupform
+from HungrezyApp.models import customer
+from HungrezyApp.models import rider
+from HungrezyApp.models import business_account
 
 # Create your views here.
 
@@ -153,15 +157,76 @@ def signupas(request):
 
 
 def customeraccountsignup(request):
-    return HttpResponse(
-        "<style>h1{text-align: center;}</style><h1>Welcome... This is our customer account signup page</h1>")
+    # return HttpResponse(
+    #     "<style>h1{text-align: center;}</style><h1>Welcome... This is our customer account signup page</h1>")
+    
+    # if(request.method == 'POST'):
+    #     form = customersignupform(request.POST)
+    #     form.save()
+        
+    # form = customersignupform()
+        
+    # context = {
+    #     'customer_signup_form' : form
+    # }
+    
+    if(request.method == 'POST'):
+        # cus_id = request.POST['cus_id']
+        name = request.POST['name']
+        email = request.POST['email']
+        address = request.POST['address']
+        contact_no = request.POST['contact_no']
+        gender = request.POST['gender']
+        password = request.POST['password']
+
+        csu = customer(name=name, email=email, address = address, contact_number = contact_no, gender=gender, password=password)
+        csu.save()
+        
+    
+    
+    
+    return render(request, 'customer_acc_signup.html')
 
 
 def businessaccountsignup(request):
-    return HttpResponse(
-        "<style>h1{text-align: center;}</style><h1>Welcome... This is our business account signup page</h1>")
+    # return HttpResponse(
+    #     "<style>h1{text-align: center;}</style><h1>Welcome... This is our business account signup page</h1>")
+    
+    if(request.method == 'POST'):
+        name = request.POST['name']
+        email = request.POST['email']
+        restaurant_name = request.POST['restaurant_name']
+        service = request.POST['service']
+        food = request.POST['food']
+        address = request.POST['address']
+        # namdelivary_methode = request.POST['delivary_method']
+        contact_no = request.POST['contact_no']
+        gender = request.POST['gender']
+        password = request.POST['password']
+        
+        bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, food_type=food, address=address, contact_no=contact_no, gender=gender, password=password)
+        bsu.save()
+        
+    
+    return render(request, 'business_acc_signup.html')
 
 
 def rideraccountsignup(request):
-    return HttpResponse(
-        "<style>h1{text-align: center;}</style><h1>Welcome... This is our rider account signup page</h1>")
+    # return HttpResponse(
+    #     "<style>h1{text-align: center;}</style><h1>Welcome... This is our rider account signup page</h1>")
+    
+    if(request.method == 'POST'):
+        name = request.POST['name']
+        email = request.POST['email']
+        address = request.POST['address']
+        delivary_method = request.POST['delivary_method']
+        contact_no = request.POST['contact_no']
+        gender = request.POST['gender']
+        password = request.POST['password']
+        
+        
+        rsu = rider(name=name, email=email, address=address, delivary_method=delivary_method, contact_no=contact_no, gender=gender, password=password)
+        rsu.save()
+        
+        
+    return render(request, 'rider_acc_signup.html')
