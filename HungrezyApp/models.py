@@ -86,10 +86,10 @@ class business_account(models.Model):
     email = models.EmailField(max_length=30)
     res_name = models.CharField(max_length=30)
     service = models.CharField(max_length=20)
-    food_type = models.CharField(max_length=20)
+    # food_type = models.CharField(max_length=20)
     address = models.TextField()
     contact_no = models.CharField(max_length=11)
-    gender = models.CharField(max_length=10)
+    # gender = models.CharField(max_length=10)
     password = models.CharField(max_length=20)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     

@@ -25,7 +25,7 @@
     width: 62%;
     height: 850px;
     float: left;
-    font-family: ;
+    font-family: 'Germania One', cursive;
     
 
 }
@@ -68,6 +68,13 @@ textarea{
     color: #0a581b;
     border-bottom: 2px solid #1ec242;
     
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
 }
 
 #csubmit{

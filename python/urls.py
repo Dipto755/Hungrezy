@@ -98,5 +98,8 @@ urlpatterns = [
     path('customer-info-update/', hungrezy_views.customerupdateinfo),
     
     path('business-info-update/', hungrezy_views.businessaccinfoupdate),
+    
+    path('rider-info-update/', hungrezy_views.rideraccountinfoupdate),
+    
 
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 # from django.core import validators
 # from HungrezyApp.forms import customersignupform
@@ -8,6 +8,7 @@ from HungrezyApp.models import customer_account
 from HungrezyApp.models import rider_account
 from HungrezyApp.models import business_account
 from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -224,7 +225,8 @@ def signup(request):
 
 
 def signupas(request):
-    return HttpResponse("<style>h1{text-align: center;}</style><h1>Welcome... This is our signup as page</h1>")
+    # return HttpResponse("<style>h1{text-align: center;}</style><h1>Welcome... This is our signup as page</h1>")
+    return render(request, 'signupas.html')
 
 
 def customeraccountsignup(request):
@@ -274,7 +276,7 @@ def customeraccountsignup(request):
         casu = customer_account(name=name, email=email, address=address,contact_number=contact_no, gender=gender, password=password, user = get_user)
         casu.save()
     
-    
+        return redirect ('/home')
     
     return render(request, 'customer_acc_signup.html')
 
@@ -288,11 +290,11 @@ def businessaccountsignup(request):
         email = request.POST['email']
         restaurant_name = request.POST['restaurant_name']
         service = request.POST['service']
-        food = request.POST['food']
+        # food = request.POST['food']
         address = request.POST['address']
-        # namdelivary_methode = request.POST['delivary_method']
+        
         contact_no = request.POST['contact_no']
-        gender = request.POST['gender']
+        # gender = request.POST['gender']
         password = request.POST['password']
         
         userT = User(username=name, email=email, password=password)
@@ -301,7 +303,7 @@ def businessaccountsignup(request):
         userObjs = User.objects.all()
         get_user = userObjs.get(username=name)
         
-        bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, food_type=food, address=address, contact_no=contact_no, gender=gender, password=password, user=get_user)
+        bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, address=address, contact_no=contact_no, password=password, user=get_user)
         bsu.save()
         
     
@@ -406,6 +408,38 @@ def businessaccinfoupdate(request):
     return render(request, 'Business_acc_update_info.html')
 
 
-# def rideraccountinfoupdate(request):
+def rideraccountinfoupdate(request):
     
-#     if(request.method == 'POST')
+    if(request.method == 'POST'):
+        name = request.POST['name']
+        address = request.POST['address']
+        contact_no = request.POST['contact_no']
+        delivary = request.POST['delivary_method']
+        password = request.POST['password']
+        
+        user_objs = rider_account.objects.all()
+        get_user = user_objs.filter(user_name=name)
+        
+        if get_user:
+            get_pass = get_user[0].password
+            
+            if get_pass == password:
+                
+                if address: 
+                    get_user[0].address = address
+                if contact_no:
+                    get_user[0].contact_number = contact_no
+                if delivary:
+                    get_user[0].delivary_method = delivary
+                
+                get_user[0].save()
+                
+            else:
+                # print("wrong password")
+                messages.error(request, "Wrong password")
+            
+        else:
+            # print("Check your username")
+            messages.error(request, "Please check your usernmane and try again")
+            
+    return render(request, 'rider_update_info.html')

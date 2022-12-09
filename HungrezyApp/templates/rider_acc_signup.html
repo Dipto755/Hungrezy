@@ -1,60 +1,76 @@
+{%load static %}
 <!DOCTYPE html>
-<!-- {% load crispy_forms_tags %} -->
-<html lang="en">
+<html>
 <head>
-    
-    <title>Rider Account Signup</title>
-    <link rel="stylesheet" href="assets/style.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'rid_sp.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+<title>Rider Account Signup</title>
 </head>
 <body>
-    <h1>Rider Account Signup</h1>
-    <form method="POST" >
-        <fieldset>
+    <div class=" div1">
+        <img src="{% static 'rid_sp.jpg' %}" alt="">
+    </div>
+    <div class="div2">
 
-            {% csrf_token %}
+        <div >
+            <center>
+                <h1 class="logtxt">Rider Account SignUp</h1>
+                <form method="POST" >
+                    <fieldset>
+                        
+                        {% csrf_token %}
             
-
-            <label for="name" class="lbl">Name: </label>
-            <input type="text" name = "name" required>
-            <br>
-
-            <label for="email">Email: </label>
-            <input type="email" name = "email" required>
-            <br>
-
-            <label for="address">Address: </label>
-            <!-- <input type="text" name = "address"> -->
-            <textarea name="address" id="address" placeholder="Enter your address" cols="30" rows="10" required></textarea>
-            <br>
-
-            <label for="delivary_method">Delivary Method: </label>
-            <select name="delivary_method" id="delivary_method" required>
-                <option value=""></option>
-                <option value="cycle">Cycle</option>
-                <option value="bike">Bike</option>
-            </select>
-            <br>
-
-            <label for="contact_no">Contact Number: </label>
-            <input type="text" name = "contact_no" required>
-            <br>
-
-            <label for="gender">Gender: </label>
-            <!-- <input type= "text" name = "gender"> -->
-            <input type="radio" name = "gender" id="male" value="Male" required> Male <input type="radio" name="gender" id="female" value="Female" required> Female 
-            <br>
+                        <label for="name" class="lbl">Name: </label>
+                        <input type="text" name = "name" placeholder="Enter your name" required>
+                        
             
-            <label for="password">Password: </label>
-            <input type="password" name="password" required>
-            <br>
-            <!-- {{customer_signup_form | crispy}} -->
+                        <label for="email">E-mail: </label>
+                        <input type="email" name = "email" placeholder="Enter your email" required>
+                        <br>
+            
+            
+                        <label for="delivary_method">Delivery Method:</label>
+                        <select name="delivary_method" id="delivary_method" required>
+                            <option value="">Select method</option>
+                            <option value="cycle">Cycle</option>
+                            <option value="bike">Bike</option>
+                        </select>
+                        <br>
+                
 
-        </fieldset>
-        
-        <button>
-            Confirm
-        </button>
-    </form>
+            
+                        <label for="contact_no">Contact Number: </label>
+                        <input type="text" name = "contact_no" placeholder="Enter your Phone number" required>
+                        <br>
+
+                        <label for="gender">Gender: </label>
+                        <!-- <input type= "text" name = "gender"> -->
+                        <input type="radio" name = "gender" id="male" value="Male" required> Male <input type="radio" name="gender" id="female" value="Female" required> Female 
+                        <br>
+
+                        <label for="address">Address: </label>
+                        <!-- <input type="text" name = "address"> -->
+                        <textarea name="address" id="address" placeholder="Enter your address" cols="30" rows="5" required></textarea>
+                        <br>
+                        
+                        
+            
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" placeholder="Enter password" required>
+                        <br>
+                        
+            
+                    </fieldset>
+                    
+                    <button id="csubmit">
+                        Confirm
+                    </button>
+                </form>
+            </center>
+            
+        </div>
+    </div>
 </body>
+
 </html>
