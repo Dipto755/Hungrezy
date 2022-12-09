@@ -334,3 +334,32 @@ def rideraccountsignup(request):
         
         
     return render(request, 'rider_acc_signup.html')
+
+def customerupdateinfo(request):
+    
+    if(request.method == 'POST'):
+        name = request.POST['name']
+        address = request.POST['address']
+        contact_no = request.POST['contact_no']
+        password = request.POST['password']
+        
+        user_objs = customer_account.objects.all()
+        get_user = user_objs.filter(name=name)
+        
+        if get_user:
+            get_pass = get_user[0].password
+            
+            if get_pass == password:
+                
+                get_user[0].address = address
+                get_user[0].contact_number = contact_no
+                
+                get_user[0].save()
+                
+            else:
+                print("wrong password")
+            
+        else:
+            print("Check your username")
+            
+    return render(request, 'customer_update_info.html')

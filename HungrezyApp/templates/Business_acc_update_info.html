@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Business Account Information Update</title>
+</head>
+<body>
+
+    <h1>Account Information</h1>
+    <form action="" method="POST">
+        <fieldset>
+            {% csrf_token %}
+
+            <label for="name">Username: </label>
+            <input type="text" name="name" placeholder="Enter your username for this account">
+        </fieldset>
+    </form>
+    <h1>Update Information</h1>
+    <form action="" method="POST">
+        <fieldset>
+            {%csrf_token%}
+
+            <label for="address">Address: </label>
+            <textarea name="address" id="address" cols="30" rows="7" placeholder="Enter your new address"></textarea>
+            <br>
+
+            <label for="contact_no">Contact Number: </label>
+            <input type="text" name="contact_no" placeholder="Enter your new contact number">
+            <br>
+
+            <label for="restaurant_name">Restaurant Name: </label>
+            <input type="text" name = restaurant_name>
+            <br>
+            
+        </fieldset>
+        <fieldset>
+
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="Enter your account password to confirm">
+            <br>
+
+        </fieldset>
+
+        <button>Confirm</button>
+    </form>
+</body>
+</html>

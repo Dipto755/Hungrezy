@@ -94,5 +94,7 @@ urlpatterns = [
     path('business-account-signup/', hungrezy_views.businessaccountsignup),
 
     path('rider-account-signup/', hungrezy_views.rideraccountsignup),
+    
+    path('customer-info-update/', hungrezy_views.customerupdateinfo),
 
 ]
