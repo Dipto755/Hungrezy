@@ -252,12 +252,23 @@ def customeraccountsignup(request):
         userT = User(username=name, email=email, password=password)
         userT.save()
         
+        # getU = User.objects.all().get(id=15)
+        # getU.username = name
+        # getU.email = email
+        # getU.save()
+        
+        
+        # getCustomer = customer_account.objects.all().get(user=15)
+        # getCustomer.name = name
+        # getCustomer.email = email
+        # getCustomer.address = address
+        # getCustomer.contact_number = contact_no
+        # getCustomer.gender = gender
+        # getCustomer.save()
+        
         userObjs = User.objects.all()
         get_user = userObjs.get(username=name)
-        # print(get_user)
         
-        # csu = customer(name=name, email=email, address = address, contact_number = contact_no, gender=gender, password=password, user=get_user)
-        # csu.save()
         
         casu = customer_account(name=name, email=email, address=address,contact_number=contact_no, gender=gender, password=password, user = get_user)
         casu.save()
