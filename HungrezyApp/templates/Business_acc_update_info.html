@@ -12,11 +12,11 @@
             {% csrf_token %}
 
             <label for="name">Username: </label>
-            <input type="text" name="name" placeholder="Enter your username for this account">
+            <input type="text" name="name" placeholder="Enter your username for this account" required>
         </fieldset>
-    </form>
+    {% comment %} </form> {% endcomment %}
     <h1>Update Information</h1>
-    <form action="" method="POST">
+    {% comment %} <form action="" method="POST"> {% endcomment %}
         <fieldset>
             {%csrf_token%}
 
@@ -29,14 +29,14 @@
             <br>
 
             <label for="restaurant_name">Restaurant Name: </label>
-            <input type="text" name = restaurant_name>
+            <input type="text" name = "restaurant_name" placeholder="Enter new restaurant name">
             <br>
             
         </fieldset>
         <fieldset>
 
             <label for="password">Password: </label>
-            <input type="password" name="password" placeholder="Enter your account password to confirm">
+            <input type="password" name="password" placeholder="Enter your account password to confirm" required>
             <br>
 
         </fieldset>

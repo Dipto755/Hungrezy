@@ -5,18 +5,19 @@
     <title> Customer Information Update</title>
 </head>
 <body>
-
+    {% include 'messages.html' %}
+    {% block content %} {% endblock content %}
     <h1>Account Information</h1>
     <form action="" method="POST">
         <fieldset>
             {%csrf_token%}
 
             <label for="name">Username: </label>
-            <input type="text" name="name" placeholder="Enter your username for this account">
+            <input type="text" name="name" required placeholder="Enter your username for this account">
         </fieldset>
-    </form>
+    {% comment %} </form> {% endcomment %}
     <h1>Update Information</h1>
-    <form action="" method="POST">
+    {% comment %} <form action="" method="POST"> {% endcomment %}
         <fieldset>
             {%csrf_token%}
 
@@ -31,7 +32,7 @@
         <fieldset>
 
             <label for="password">Password: </label>
-            <input type="password" name="password" placeholder="Enter your account password to confirm">
+            <input type="password" name="password" placeholder="Enter your account password to confirm" required>
             <br>
 
         </fieldset>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'login.css' %}">
+<link rel="stylesheet" href="{% static 'login (1).css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,16 +25,16 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <!-- <label for="name">Name: </label> -->
-                        <input type="text" name="email" id="email" placeholder="Enter your Email">
+                        <input type="text" name="email" id="email" placeholder="Enter your Email" required>
                     </div>
                     <div class="form-group">
                         <!-- <label for="name">Email: </label> -->
-                        <input type="password" name="password" id="password" placeholder="Enter your password">
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required>
                         
                     </div>
                 
                     <div class="form-group" >
-                        <select id="users" name="users">
+                        <select id="users" name="users" required>
                             <option value="usertype">Select account type</option>
                             <option value="customer">Customer</option>
                             <option value="rider">Rider</option>

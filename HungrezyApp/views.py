@@ -16,7 +16,8 @@ from django.shortcuts import render, HttpResponse
 
 
 def home(request):
-    return HttpResponse("<style>h1{text-align: center;}</style><h1>Welcome... This is our homepage</h1>")
+    # return HttpResponse("<style>h1{text-align: center;}</style><h1>Welcome... This is our homepage</h1>")
+    return render(request, 'home.html')
 
 
 def restaurants(request):
@@ -351,15 +352,60 @@ def customerupdateinfo(request):
             
             if get_pass == password:
                 
-                get_user[0].address = address
-                get_user[0].contact_number = contact_no
+                if address: 
+                    get_user[0].address = address
+                if contact_no:
+                    get_user[0].contact_number = contact_no
                 
                 get_user[0].save()
                 
             else:
-                print("wrong password")
+                # print("wrong password")
+                messages.error(request, "Wrong password")
             
         else:
-            print("Check your username")
+            # print("Check your username")
+            messages.error(request, "Please check your usernmane and try again")
             
     return render(request, 'customer_update_info.html')
+
+
+def businessaccinfoupdate(request):
+    if(request.method == 'POST'):
+        name = request.POST['name']
+        address = request.POST['address']
+        restu_name = request.POST['restaurant_name']
+        contact_no = request.POST['contact_no']
+        password = request.POST['password']
+        
+        user_objs = business_account.objects.all()
+        get_user = user_objs.filter(name=name)
+        
+        if get_user:
+            get_pass = get_user[0].password
+            
+            if get_pass == password:
+                
+                if address: 
+                    get_user[0].address = address
+                if contact_no:
+                    get_user[0].contact_no = contact_no
+                if restu_name:
+                    get_user[0].res_name = restu_name
+                
+                get_user[0].save()
+                
+            else:
+                # print("wrong password")
+                messages.error(request, "Wrong password")
+            
+        else:
+            # print("Check your username")
+            messages.error(request, "Please check your usernmane and try again")
+            
+    return render(request, 'Business_acc_update_info.html')
+
+
+# def rideraccountinfoupdate(request):
+    
+#     if(request.method == 'POST')
