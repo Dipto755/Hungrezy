@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('home/', hungrezy_views.home),
+    
+    path('', hungrezy_views.home),
 
     path('restaurants/', hungrezy_views.restaurants),
 
@@ -101,5 +103,7 @@ urlpatterns = [
     
     path('rider-info-update/', hungrezy_views.rideraccountinfoupdate),
     
-
+    path('customer-login/', hungrezy_views.customerlogin),
+    
+    
 ]

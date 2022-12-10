@@ -73,7 +73,12 @@ def login(request):
                 cus = customer_account.objects.all()
                 get_cus = cus.filter(user=get_user[0].id)
                 if get_cus:
-                    print("Successfully logged in")
+                    context = {'nametext' : get_cus[0].name}
+                    # print("Successfully logged in")
+                    # return render(request,'customer_login.html', context)
+                    return render(request,'customer_login.html', context)
+
+                    
                 else:
                     messages.error(request, "Please select correct type")
             
@@ -443,3 +448,7 @@ def rideraccountinfoupdate(request):
             messages.error(request, "Please check your usernmane and try again")
             
     return render(request, 'rider_update_info.html')
+
+def customerlogin(request):
+    
+    return render(request, 'customer_login.html')

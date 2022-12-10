@@ -15,3 +15,7 @@ from HungrezyApp.models import customer
 #             'contact_number',
 #             'gender',
 #         ]
+
+
+# class customerupdateform(forms.ModelForm):
+    
