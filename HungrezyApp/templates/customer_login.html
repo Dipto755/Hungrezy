@@ -25,13 +25,22 @@
             <li class="item"><a href="#homeresturants-container">Home Made Food</a></li>
             
             <div> 
-                Hello old friend, {{ nametext }}
+                {% comment %} Hello old friend, {{ nametext }} {% endcomment %}
                 {% comment %} {{name}} {% endcomment %}
-                <button class="btn">Log Out</button>
-                <button class="btn">Account</button>
+                {% comment %} <button class="btn">Log Out</button>
+                <button class="btn">Account</button> {% endcomment %}
 
                 
             </div>
+        </ul>
+        <ul>
+            {% comment %} Hello old friend, {{ nametext }} {% endcomment %}
+
+            <li class="item"><a>{{nametext}}</a></li>
+            <li class="item"><a href="/login">Log out</a></li>
+            <li class="item"><a href="/customer-info-update">Update Profile</a></li>
+        
+        
         </ul>
         
     </nav>
@@ -48,7 +57,7 @@
                 <img src="{% static 'pizzaburg.jpg' %}" alt="pizzaburglogo">
                 <h2 class="h-secondary center">PizzaBurg</h2> 
                 <p class="center">PizzaBurg is the brainchild of the same entrepreneur that gave us peri pasta.Now we're here to be the best pizza & burger joint in Dhaka.</p>
-                <p class="p_reset"><a href="">Order Now !!</a></p>
+                <p class="p_reset"><a href="/order-process">Order Now !!</a></p>
 
 
             </div>
@@ -57,7 +66,7 @@
                     <h2 class="h-secondary center">KacchiBhai</h2> 
                     <p class="center">We are here to serve you traditional kacchi in reasonable price.You are always welcome to taste traditional taste
                     
-                    <p class="p_reset"><a href=""> Order Now !!</a></p>
+                    <p class="p_reset"><a href="/order-process"> Order Now !!</a></p>
                     
                 </div>
                     
@@ -65,7 +74,7 @@
                         <img src="{% static 'crimson.jpg' %}" alt="crimsoncup">
                         <h2 class="h-secondary center">Crimson Cup</h2> 
                         <p class="center">Crimson Cup gives you the real taste of American coffee and the complete coffee experience by serving you Crimson Cup coffee and tea.</p>
-                        <p class="p_reset"><a href=""> Order Now !!</a></p>
+                        <p class="p_reset"><a href="/order-process"> Order Now !!</a></p>
             
                     </div>
                 
@@ -77,21 +86,21 @@
                 <img src="{% static 'khanas.jpg' %}" alt="khanas">
                 <h2 class="h-secondary center">Khana's</h2> 
                 <p class="center">Inspire by street food business by the name Ande Khana Since 2010. We had an incredible success. Now we will be serving as Khana's.</p>
-                <p class="p_reset"><a href=""> Order Now !!</a></p>
+                <p class="p_reset"><a href="/order-process"> Order Now !!</a></p>
 
             </div>
                 <div class="box">
                     <img src="{% static 'ozz.jpg' %}" alt="ozzcafe">
                     <h2 class="h-secondary center">Ozz Cafe</h2> 
                     <p class=" center">Ozz brings you a homely cafe with an exquisite environment where you will drop by after your busy day and kiss your stress of life goodbye!!</p>
-                    <p class="p_reset"><a href=""> Order Now !!</a></p>  
+                    <p class="p_reset"><a href="/order-process"> Order Now !!</a></p>  
                 </div>
                     
                 <div class="box">
                         <img src="{% static 'Sultans dine.jpg' %}" alt="sultansdine">
                         <h2 class="h-secondary center">Sultan's Dine</h2> 
                         <p class="center">Sultan's Dine is a restaurant dedicated to satisfy the opulent cravings with our delicious take on the traditional feast of the Sultans</p>
-                        <p class="p_reset"><a href=""> Order Now !!</a></p>  
+                        <p class="p_reset"><a href="/order-process"> Order Now !!</a></p>  
                     </div>
 
             </div>

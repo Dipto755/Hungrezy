@@ -103,7 +103,9 @@ urlpatterns = [
     
     path('rider-info-update/', hungrezy_views.rideraccountinfoupdate),
     
-    path('customer-login/', hungrezy_views.customerlogin),
+    # path('customer-login/', hungrezy_views.customerlogin),
+    
+    path('order-process/', hungrezy_views.menucart),
     
     
 ]

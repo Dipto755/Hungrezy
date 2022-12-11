@@ -172,6 +172,12 @@
     font-weight: 500;
 
 }
+
+#astyle {
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    text-decoration: none;
+}
 /* contact */
 .h2style{
     padding-top: 80px;

@@ -365,6 +365,7 @@ def customerupdateinfo(request):
                     get_user[0].contact_number = contact_no
                 
                 get_user[0].save()
+                messages.error(request, "Successfully updated!")
                 
             else:
                 # print("wrong password")
@@ -452,3 +453,7 @@ def rideraccountinfoupdate(request):
 def customerlogin(request):
     
     return render(request, 'customer_login.html')
+
+
+def menucart(request):
+    return render(request, 'menucart.html')
