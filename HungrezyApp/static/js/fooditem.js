@@ -6,7 +6,7 @@ const foodItem= [
     category : 'pizzaburg',
     rating : 5,
     price: 415,
-    img: '../images/pizzaburg/sasaugecarnival.jpg',
+    img: '/static/images/pizzaburg/sasaugecarnival.jpg',
     // img: "{% static 'sasaugecarnival.jpg' %}",
     // img: 'sasaugecarnival.jpg',
     quantity: 1
@@ -17,7 +17,7 @@ const foodItem= [
     category : 'pizzaburg',
     rating : 4.1,
     price: 375,
-    img: 'images/pizzaburg/meatyonion.jpg',
+    img: '/static/images/pizzaburg/meatyonion.jpg',
     quantity: 1
 },
 {
@@ -26,7 +26,7 @@ const foodItem= [
     category : 'pizzaburg',
     rating :3.5,
     price: 395,
-    img: 'images/pizzaburg/tenderbeef.jpg',
+    img: '/static/images/pizzaburg/tenderbeef.jpg',
     quantity: 1
 },
 {
@@ -35,7 +35,7 @@ const foodItem= [
     category : 'pizzaburg',
     rating : 4.3,
     price: 215,
-    img: 'images/pizzaburg/juicybomb.jpg',
+    img: '/static/images/pizzaburg/juicybomb.jpg',
     quantity: 1
 },
 {
@@ -44,7 +44,7 @@ const foodItem= [
     category : 'pizzaburg',
     rating : 3.5,
     price: 185,
-    img: 'images/pizzaburg/bbq.jpg',
+    img: '/static/images/pizzaburg/bbq.jpg',
     quantity: 1
 },
 {
@@ -53,7 +53,7 @@ const foodItem= [
     category : 'pizzaburg',
     rating : 4.4,
     price: 165,
-    img: 'images/pizzaburg/setmenu.jpg',
+    img: '/static/images/pizzaburg/setmenu.jpg',
     quantity: 1
 },
 
@@ -63,7 +63,7 @@ const foodItem= [
     category : 'kacchibhai',
     rating : 4.9,
     price: 270,
-    img: 'images/kacchibhai/basmatikacchi.jpg',
+    img: '/static/images/kacchibhai/basmatikacchi.jpg',
     quantity: 1
 },
 {
@@ -72,7 +72,7 @@ const foodItem= [
     category : 'kacchibhai',
     rating : 4.4,
     price: 420,
-    img: 'images/kacchibhai/kacchikhadok.jpg',
+    img: '/static/images/kacchibhai/kacchikhadok.jpg',
     quantity: 1
 },
 {
@@ -81,7 +81,7 @@ const foodItem= [
     category : 'kacchibhai',
     rating : 4.9,
     price: 250,
-    img: 'images/kacchibhai/polao.jpg',
+    img: '/static/images/kacchibhai/polao.jpg',
     quantity: 1
 },
 {
@@ -90,7 +90,7 @@ const foodItem= [
     category : 'kacchibhai',
     rating : 4.3,
     price: 120,
-    img: 'images/kacchibhai/chickenroast.jpg',
+    img: '/static/images/kacchibhai/chickenroast.jpg',
     quantity: 1
 },
 {
@@ -99,7 +99,7 @@ const foodItem= [
     category : 'kacchibhai',
     rating : 4.5,
     price: 60,
-    img: 'images/kacchibhai/jorda.jpg',
+    img: '/static/images/kacchibhai/jorda.jpg',
     quantity: 1
 },
 
@@ -109,7 +109,7 @@ const foodItem= [
     category : 'sultan',
     rating : 4.3,
     price: 269,
-    img: 'images/sultan/sbashkacchi.jpg',
+    img: '/static/images/sultan/sbashkacchi.jpg',
     quantity: 1
 
 },
@@ -119,7 +119,7 @@ const foodItem= [
     category : 'sultan',
     rating : 4.2,
     price:199,
-    img: 'images/sultan/muttontehari.jpeg',
+    img: '/static/images/sultan/muttontehari.jpeg',
     quantity: 1
 },
 {
@@ -128,7 +128,7 @@ const foodItem= [
     category : 'sultan',
     rating : 4.1,
     price: 15,
-    img: 'images/sultan/kacchiplatter.jpg',
+    img: '/static/images/sultan/kacchiplatter.jpg',
     quantity: 1
 
 },
@@ -138,7 +138,7 @@ const foodItem= [
     category : 'sultan',
     rating : 4.8,
     price: 320,
-    img: 'images/sultan/nababikacchi.jpeg',
+    img: '/static/images/sultan/nababikacchi.jpeg',
     quantity: 1
 
 },
@@ -148,7 +148,7 @@ const foodItem= [
     category : 'sultan',
     rating : 4.2,
     price: 299,
-    img: 'images/sultan/murogpolao.jpg',
+    img: '/static/images/sultan/murogpolao.jpg',
     quantity: 1
 },
 {
@@ -157,7 +157,7 @@ const foodItem= [
     category : 'khanas',
     rating : 4.2,
     price:273,
-    img: 'images/khanas/hunterBeefsub.jpg',
+    img: '/static/images/khanas/hunterBeefsub.jpg',
     quantity: 1
 },
 {
@@ -166,7 +166,7 @@ const foodItem= [
     category : 'khanas',
     rating : 4.3,
     price: 439 ,
-    img: 'images/khanas/periperichickenwings.jpg',
+    img: '/static/images/khanas/periperichickenwings.jpg',
     quantity: 1
 },
 {
@@ -175,7 +175,7 @@ const foodItem= [
     category : 'khanas',
     rating : 4.3,
     price: 239,
-    img: 'images/khanas/chickenmomo.jpg',
+    img: '/static/images/khanas/chickenmomo.jpg',
     quantity: 1
 },
 {
@@ -184,7 +184,7 @@ const foodItem= [
     category : 'khanas',
     rating : 4.3,
     price: 224,
-    img: 'images/khanas/trufflefries.jpg',
+    img: '/static/images/khanas/trufflefries.jpg',
     quantity: 1
 },
 {
@@ -193,7 +193,7 @@ const foodItem= [
     category : 'khanas',
     rating : 4.3,
     price: 334,
-    img: 'images/khanas/khana_sspecialchickenburger.jpg',
+    img: '/static/images/khanas/khana_sspecialchickenburger.jpg',
     quantity: 1
 },
 {
@@ -202,7 +202,7 @@ const foodItem= [
     category : 'crimson',
     rating : 3.3,
     price: 270,
-    img: 'images/crimsoncup/crimsoncupmocha.jpg',
+    img: '/static/images/crimsoncup/crimsoncupmocha.jpg',
     quantity: 1
 },
 {
@@ -211,7 +211,7 @@ const foodItem= [
     category : 'crimson',
     rating : 4.5,
     price: 259,
-    img: 'images/crimsoncup/cafemocha.jpg',
+    img: '/static/images/crimsoncup/cafemocha.jpg',
     quantity: 1
 },
 {
@@ -220,7 +220,7 @@ const foodItem= [
     category : 'crimson',
     rating : 4.3,
     price: 330,
-    img: 'images/crimsoncup/matchalatte.jpg',
+    img: '/static/images/crimsoncup/matchalatte.jpg',
     quantity: 1
 },
 {
@@ -229,7 +229,7 @@ const foodItem= [
     category : 'crimson',
     rating : 4.3,
     price: 16,
-    img: 'images/crimsoncup/americanno.jpg',
+    img: '/static/images/crimsoncup/americanno.jpg',
     quantity: 1
 },
 {
@@ -238,7 +238,7 @@ const foodItem= [
     category : 'ozz',
     rating : 3.5,
     price:  260,
-    img: 'images/ozzcafe/spicynagapasta.jpg',
+    img: '/static/images/ozzcafe/spicynagapasta.jpg',
     quantity: 1
 },
 {
@@ -247,7 +247,7 @@ const foodItem= [
     category : 'ozz',
     rating : 4.2,
     price: 320,
-    img: 'images/ozzcafe/chilifriedrice.jpg',
+    img: '/static/images/ozzcafe/chilifriedrice.jpg',
     quantity: 1
 },
 {
@@ -256,7 +256,7 @@ const foodItem= [
     category : 'ozz',
     rating : 4.5,
     price: 212,
-    img: 'images/ozzcafe/chickenvegetable.jpg',
+    img: '/static/images/ozzcafe/chickenvegetable.jpg',
     quantity: 1
 },
 {
@@ -265,7 +265,7 @@ const foodItem= [
     category : 'ozz',
     rating : 4.3,
     price: 250,
-    img: 'images/ozzcafe/padthainoodles.jpg',
+    img: '/static/images/ozzcafe/padthainoodles.jpg',
     quantity: 1
 },
 {
@@ -274,7 +274,7 @@ const foodItem= [
     category : 'ozz',
     rating : 3.2,
     price: 450,
-    img: 'images/ozzcafe/chilichickenonion.jpg',
+    img: '/static/images/ozzcafe/chilichickenonion.jpg',
     quantity: 1
 },
 

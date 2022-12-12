@@ -86,7 +86,9 @@ def login(request):
                 rid = rider_account.objects.all()
                 get_rid = rid.filter(user=get_user[0].id)
                 if get_rid:
-                    print("Successfully logged in")
+                    # print("Successfully logged in")
+                    context = {'nametext' : get_rid[0].name}
+                    # return render(request,'business_login.html', context)
                 else:
                     messages.error(request, "Please select correct type")
                     
@@ -94,7 +96,9 @@ def login(request):
                 bus = business_account.objects.all()
                 get_bus = bus.filter(user=get_user[0].id)
                 if get_bus:
-                    print("Successfully logged in")
+                    # print("Successfully logged in")
+                    context = {'nametext' : get_bus[0].name}
+                    return render(request,'bussiness_login.html', context)
                 else:
                     messages.error(request, "Please select correct type")
                     
@@ -402,7 +406,7 @@ def businessaccinfoupdate(request):
                     get_user[0].res_name = restu_name
                 
                 get_user[0].save()
-                
+                messages.error(request, "Successfully updated!")
             else:
                 # print("wrong password")
                 messages.error(request, "Wrong password")

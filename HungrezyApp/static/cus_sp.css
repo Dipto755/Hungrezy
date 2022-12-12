@@ -91,3 +91,9 @@ a{
     font-size: 1.1rem;
     cursor: pointer;
 }
+
+#rtha{
+    text-decoration: none;
+    color: #0a581b96;
+    /* margin-left: 100px; */
+}
