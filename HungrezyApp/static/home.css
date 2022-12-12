@@ -94,8 +94,8 @@
 }
 .btnl{
     padding: 6px 20px;
-    border: 2px solid rgb(224, 139, 11);
-    background-color: rgb(221, 183, 134);
+    /* border: 2px solid rgb(224, 139, 11); */
+    /* background-color: rgb(221, 183, 134); */
     color: rgb(0, 0, 0);
     margin: 17px;
     margin-left:380px;

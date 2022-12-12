@@ -10,6 +10,8 @@
 
 </head>
 <body>
+    {% include 'messages.html' %}
+    {% block content %} {% endblock content %}
     <div class="div1">
         <center>
             <h1 class="logtxt">Customer Account Signup</h1>
@@ -43,6 +45,10 @@
 
             <label for="password">Password: </label>
             <input type="password" name = "password" required>
+            <br>
+
+            <label for="confirm_password">Confirm Password: </label>
+            <input type="password" name = "confirm_password" required>
             <br>
             
             <!-- {{customer_signup_form | crispy}} -->

@@ -260,9 +260,22 @@ def customeraccountsignup(request):
         contact_no = request.POST['contact_no']
         gender = request.POST['gender']
         password = request.POST['password']
+        c_password = request.POST['confirm_password']
 
-        userT = User(username=name, email=email, password=password)
-        userT.save()
+        if password == c_password:
+            userT = User(username=name, email=email, password=password)
+            userT.save()
+            
+            userObjs = User.objects.all()
+            get_user = userObjs.get(username=name)
+        
+        
+            casu = customer_account(name=name, email=email, address=address,contact_number=contact_no, gender=gender, password=password, user = get_user)
+            casu.save()
+    
+            return redirect ('/home')
+        else:
+            messages.error(request, "Check password and try again")
         
         # getU = User.objects.all().get(id=15)
         # getU.username = name
@@ -278,14 +291,7 @@ def customeraccountsignup(request):
         # getCustomer.gender = gender
         # getCustomer.save()
         
-        userObjs = User.objects.all()
-        get_user = userObjs.get(username=name)
         
-        
-        casu = customer_account(name=name, email=email, address=address,contact_number=contact_no, gender=gender, password=password, user = get_user)
-        casu.save()
-    
-        return redirect ('/home')
     
     return render(request, 'customer_acc_signup.html')
 
@@ -301,19 +307,25 @@ def businessaccountsignup(request):
         service = request.POST['service']
         # food = request.POST['food']
         address = request.POST['address']
-        
         contact_no = request.POST['contact_no']
         # gender = request.POST['gender']
         password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
         
-        userT = User(username=name, email=email, password=password)
-        userT.save()
+        if confirm_password == password:
+            userT = User(username=name, email=email, password=password)
+            userT.save()
+
+            userObjs = User.objects.all()
+            get_user = userObjs.get(username=name)
+            
+            bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, address=address, contact_no=contact_no, password=password, user=get_user)
+            bsu.save()
+
+            return redirect('/home')
         
-        userObjs = User.objects.all()
-        get_user = userObjs.get(username=name)
-        
-        bsu = business_account(name=name, email=email, res_name = restaurant_name, service = service, address=address, contact_no=contact_no, password=password, user=get_user)
-        bsu.save()
+        else:
+            messages.error(request, "Check confirm password and try again")
         
     
     return render(request, 'business_acc_signup.html')
@@ -353,6 +365,8 @@ def customerupdateinfo(request):
         name = request.POST['name']
         address = request.POST['address']
         contact_no = request.POST['contact_no']
+        new_pass = request.POST['new_pass']
+        c_new_pass = request.POST['c_new_pass']
         password = request.POST['password']
         
         user_objs = customer_account.objects.all()
@@ -367,6 +381,11 @@ def customerupdateinfo(request):
                     get_user[0].address = address
                 if contact_no:
                     get_user[0].contact_number = contact_no
+                if new_pass:
+                    if new_pass == c_new_pass:
+                        get_user[0].password = new_pass
+                    else:
+                        messages.error(request, "Check new password and try again")
                 
                 get_user[0].save()
                 messages.error(request, "Successfully updated!")
@@ -388,6 +407,8 @@ def businessaccinfoupdate(request):
         address = request.POST['address']
         restu_name = request.POST['restaurant_name']
         contact_no = request.POST['contact_no']
+        new_pass = request.POST['new_pass']
+        c_new_pass = request.POST['c_new_pass']
         password = request.POST['password']
         
         user_objs = business_account.objects.all()
@@ -404,6 +425,12 @@ def businessaccinfoupdate(request):
                     get_user[0].contact_no = contact_no
                 if restu_name:
                     get_user[0].res_name = restu_name
+                
+                if new_pass:
+                    if new_pass == c_new_pass:
+                        get_user[0].password = new_pass
+                    else:
+                        messages.error(request, "Check new password nad try again")
                 
                 get_user[0].save()
                 messages.error(request, "Successfully updated!")

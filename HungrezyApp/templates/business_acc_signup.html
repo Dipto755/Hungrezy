@@ -8,6 +8,8 @@
 <title>Business Account Signup</title>
 </head>
 <body>
+    {% include 'messages.html' %}
+    {% block content %} {% endblock content %}
     <div class=" div1">
         <img src="{% static 'rid_sp.jpg' %}" alt="">
     </div>
@@ -61,6 +63,10 @@
             
                         <label for="password">Password: </label>
                         <input type="password" name="password" placeholder="Enter password" required>
+                        <br>
+            
+                        <label for="confirm_password">Confirm Password: </label>
+                        <input type="password" name="confirm_password" placeholder="Confirm password" required>
                         <br>
                         
             
